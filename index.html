@@ -9,56 +9,108 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
-        .btn-modern { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-modern { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); min-height: 48px; }
         .btn-modern:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.9); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1); }
+        #toast { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(100px); }
+        #toast.show { transform: translateY(0); }
+        
+        /* Barrierefreiheits-Modus */
+        .a11y-mode { font-size: 1.2rem !important; }
+        .a11y-mode button, .a11y-mode a { border: 3px solid #000 !important; outline: 3px solid #ff0 !important; background: #fff !important; color: #000 !important; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans min-h-screen py-12 px-4">
+<body id="body-content" class="bg-slate-50 text-slate-900 font-sans min-h-screen py-12 px-4">
+
+    <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl z-[120] font-bold text-sm hidden">
+        Gutscheincode kopiert!
+    </div>
+
+    <div id="redirect-overlay" class="fixed inset-0 bg-white/80 backdrop-blur-sm hidden flex items-center justify-center z-[110]">
+        <div class="text-center bg-white p-8 rounded-3xl shadow-2xl border border-slate-100">
+            <i id="spinner" class="fas fa-spinner fa-spin text-4xl text-slate-900 mb-4"></i>
+            <p id="redirect-text" class="font-bold text-lg">Weiterleitung...</p>
+        </div>
+    </div>
 
     <main class="max-w-md mx-auto">
-        <!-- Profil -->
-        <div class="text-center mb-10">
+        <header class="text-center mb-10">
             <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden shadow-xl ring-2 ring-white">
-                <img src="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj" alt="Tim-Gi-Oh">
+                <img src="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj" alt="Logo Tim-Gi-Oh">
             </div>
             <h1 class="text-2xl font-extrabold flex items-center justify-center gap-2">
-                Tim-Gi-Oh <i class="fas fa-check-circle text-blue-500 text-sm"></i>
+                Tim-Gi-Oh <i class="fas fa-check-circle text-blue-500 text-sm" aria-hidden="true"></i>
             </h1>
             <p class="text-slate-500 text-sm font-medium">@timgioh</p>
             <p class="text-slate-600 text-sm mt-3 px-4 italic">"Hey, ich bin Tim, 33 Jahre alt und leidenschaftlicher Yugi Spieler"</p>
-        </div>
+        </header>
 
-        <!-- Haupt-Links -->
-        <div class="space-y-3">
-            <a href="https://m.twitch.tv/timgioh/home" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold"><i class="fab fa-twitch text-purple-600 mr-4 text-xl"></i> Twitch Live</a>
-            <a href="https://www.tiktok.com/@timgioh?_r=1&_t=ZG-97klEwcp1RA" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold"><i class="fab fa-tiktok mr-4 text-xl"></i> TikTok</a>
-            <a href="https://www.youtube.com/timgioh" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold"><i class="fab fa-youtube text-red-600 mr-4 text-xl"></i> YouTube</a>
-            <a href="https://www.instagram.com/timgioh/" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold"><i class="fab fa-instagram text-pink-600 mr-4 text-xl"></i> Instagram</a>
+        <nav class="space-y-3" aria-label="Hauptnavigation">
+            <button type="button" onclick="handleLink('https://m.twitch.tv/timgioh/home', 'Twitch')" aria-label="Twitch Live besuchen" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-twitch text-purple-600 mr-4 text-xl" aria-hidden="true"></i> Twitch Live</button>
+            <button type="button" onclick="handleLink('https://www.tiktok.com/@timgioh?_r=1&_t=ZG-97klEwcp1RA', 'TikTok')" aria-label="TikTok besuchen" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-tiktok mr-4 text-xl" aria-hidden="true"></i> TikTok</button>
+            <button type="button" onclick="handleLink('https://www.youtube.com/timgioh', 'YouTube')" aria-label="YouTube besuchen" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-youtube text-red-600 mr-4 text-xl" aria-hidden="true"></i> YouTube</button>
+            <button type="button" onclick="handleLink('https://www.instagram.com/timgioh/', 'Instagram')" aria-label="Instagram besuchen" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-instagram text-pink-600 mr-4 text-xl" aria-hidden="true"></i> Instagram</button>
             
             <div class="pt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-2">Community</div>
-            <a href="https://www.whatsapp.com/channel/0029Vaj0ULE5vKAFVWnZWZ1g" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold"><i class="fab fa-whatsapp text-green-500 mr-4 text-xl"></i> WhatsApp Info Gruppe</a>
-            <div class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold opacity-60 cursor-not-allowed border-dashed border-2 border-slate-200">
-                <i class="fab fa-discord text-indigo-500 mr-4 text-xl"></i> Dual Academy (Inaktiv)
-            </div>
-
+            <button type="button" onclick="handleLink('https://www.whatsapp.com/channel/0029Vaj0ULE5vKAFVWnZWZ1g', 'WhatsApp')" aria-label="WhatsApp Info Gruppe beitreten" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-whatsapp text-green-500 mr-4 text-xl" aria-hidden="true"></i> WhatsApp Info Gruppe</button>
+            <button type="button" onclick="handleExpired()" aria-label="Dual Academy Discord ist inaktiv" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold opacity-60 border-dashed border-2 border-slate-200"><i class="fab fa-discord text-indigo-500 mr-4 text-xl" aria-hidden="true"></i> Dual Academy (Inaktiv)</button>
+            
             <div class="pt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-2">Partner & Support (*Werbung)</div>
-            <a href="https://ice-white.com/products/ice-white-75-matte-sleeves-japanese-size" class="btn-modern glass flex justify-between items-center p-4 rounded-2xl font-semibold"><span>ICE Sleeves</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM5</span></a>
-            <a href="https://www.steelduck.de" class="btn-modern glass flex justify-between items-center p-4 rounded-2xl font-semibold"><span>Steelduck</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIIM5</span></a>
-            <a href="https://www.jungcards.com" class="btn-modern glass flex justify-between items-center p-4 rounded-2xl font-semibold"><span>Jungcards</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM10</span></a>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=29X3WNVFCHJ5L" class="btn-modern glass flex items-center p-4 rounded-2xl font-semibold text-blue-700"><i class="fab fa-paypal mr-4 text-xl"></i> Support via PayPal</a>
-        </div>
+            <button type="button" onclick="handleLink('https://ice-white.com/products/ice-white-75-matte-sleeves-japanese-size', 'ICE Sleeves', 'TIM5')" aria-label="ICE Sleeves Shop, Gutscheincode TIM5" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold text-left">
+                <span class="flex items-center gap-3"><img src="https://ice-white.com/cdn/shop/files/ICE_GUARD_LOGO_310x.png?v=1745772259" class="w-6 h-6 object-contain" alt="" aria-hidden="true"> ICE Sleeves</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM5</span>
+            </button>
+            <button type="button" onclick="handleLink('https://www.steelduck.de', 'Steelduck', 'TIIM5')" aria-label="Steelduck Shop, Gutscheincode TIIM5" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold text-left">
+                <span class="flex items-center gap-3"><img src="https://www.steelduck.de/cdn/shop/files/Favicon.png?crop=center&height=32&v=1745877021&width=32" class="w-6 h-6 object-contain" alt="" aria-hidden="true"> Steelduck</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIIM5</span>
+            </button>
+            <button type="button" onclick="handleLink('https://www.jungcards.com', 'Jungcards', 'TIM10')" aria-label="Jungcards Shop, Gutscheincode TIM10" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold text-left">
+                <span class="flex items-center gap-3"><img src="https://www.jungcards.com/cdn/shop/t/24/assets/jc-cards-logo.svg?v=3250316064004515051782481280" class="w-6 h-6 object-contain" alt="" aria-hidden="true"> Jungcards</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM10</span>
+            </button>
+            <button type="button" onclick="handleLink('https://www.paypal.com/donate/?hosted_button_id=29X3WNVFCHJ5L', 'PayPal')" aria-label="PayPal Support" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold text-blue-700"><i class="fab fa-paypal mr-4 text-xl" aria-hidden="true"></i> Support via PayPal</button>
+        </nav>
 
-        <footer class="mt-12 text-center text-slate-400 text-xs">
-            <button onclick="document.getElementById('modal').classList.remove('hidden')" class="hover:underline">Impressum</button>
+        <footer class="mt-12 text-center text-slate-400 text-xs space-x-4">
+            <button type="button" onclick="document.getElementById('modal').classList.remove('hidden')" class="hover:underline">Impressum</button>
+            <button type="button" onclick="document.getElementById('body-content').classList.toggle('a11y-mode')" class="font-bold underline text-blue-600">Barrierefreiheit aktivieren</button>
         </footer>
     </main>
 
-    <!-- Modal für Impressum -->
-    <div id="modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div id="modal" role="dialog" aria-modal="true" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-[105]">
         <div class="bg-white rounded-3xl p-2 max-w-sm w-full shadow-2xl relative">
-            <button onclick="document.getElementById('modal').classList.add('hidden')" class="absolute top-4 right-4 text-xl font-bold p-2 text-slate-500">×</button>
-            <img src="https://i.postimg.cc/xTRsMD99/Imp-24-Soical-Meida.jpg" class="w-full rounded-2xl">
+            <button type="button" onclick="document.getElementById('modal').classList.add('hidden')" aria-label="Schließen" class="absolute top-4 right-4 text-xl font-bold p-2 text-slate-500">×</button>
+            <img src="https://i.postimg.cc/xTRsMD99/Imp-24-Soical-Meida.jpg" class="w-full rounded-2xl" alt="Impressum Bild">
         </div>
     </div>
+
+    <script>
+        function handleLink(url, platform, code = null) {
+            const overlay = document.getElementById('redirect-overlay');
+            document.getElementById('redirect-text').innerText = `Du wirst zu ${platform} weitergeleitet...`;
+            document.getElementById('spinner').classList.remove('hidden');
+            overlay.classList.remove('hidden');
+
+            if (code) {
+                navigator.clipboard.writeText(code);
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                setTimeout(() => toast.classList.add('show'), 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.classList.add('hidden'), 400);
+                }, 2000);
+            }
+
+            setTimeout(() => {
+                window.open(url, '_blank');
+                overlay.classList.add('hidden');
+            }, 1000);
+        }
+
+        function handleExpired() {
+            const overlay = document.getElementById('redirect-overlay');
+            document.getElementById('redirect-text').innerText = "Dieser Link ist leider abgelaufen!";
+            document.getElementById('spinner').classList.add('hidden');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('hidden'), 2000);
+        }
+    </script>
 </body>
 </html>
