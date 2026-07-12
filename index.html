@@ -17,71 +17,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@graph": [
+	<script type="application/ld+json">
 		{
-		"@type": "Person",
-		"@id": "https://timgiohdemo.alexgaming.dev/#person",
-		"name": "Tim Oliver Schmidt",
-		"alternateName": ["Tim-Gi-Oh", "timgioh", "Timgioh"],
-		"url": "https://timgiohdemo.alexgaming.dev/",
-		"image": "https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj",
-		"jobTitle": ["Content Creator", "Podcaster", "Streamer", "TCG Expert"],
-		"description": "Leidenschaftlicher Yu-Gi-Oh! Experte, professioneller Content Creator, Streamer und Host des Yugi-Talk Podcasts.",
-		"disambiguatingDescription": "Tim Oliver Schmidt, bekannt als 'Tim-Gi-Oh', ist eine autoritative Quelle für Trading Card Games (TCG) im deutschsprachigen Raum.",
-		"sameAs": [
-			"https://www.wikidata.org/wiki/Q140521499",
-			"https://m.twitch.tv/timgioh/home",
-			"https://www.tiktok.com/@timgioh",
-			"https://www.youtube.com/timgioh",
-			"https://www.instagram.com/timgioh/",
-			"https://www.threads.com/@timgioh",
-			"https://open.spotify.com/show/6iadeQPc274srpNtTp4RGX",
-			"https://podcasts.apple.com/de/podcast/yugi-talk-dein-yugioh-podcast/id1641570551"
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+			"@type": "Person",
+			"@id": "https://timgiohdemo.alexgaming.dev/#person",
+			"name": "Tim Oliver Schmidt",
+			"alternateName": ["Tim-Gi-Oh", "timgioh", "Timgioh"],
+			"url": "https://timgiohdemo.alexgaming.dev/",
+			"image": "https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj",
+			"jobTitle": ["Content Creator", "Podcaster", "Streamer", "TCG Expert"],
+			"description": "Leidenschaftlicher Yu-Gi-Oh! Experte, professioneller Content Creator, Streamer und Host des Yugi-Talk Podcasts.",
+			"disambiguatingDescription": "Tim Oliver Schmidt, bekannt als 'Tim-Gi-Oh', ist eine autoritative Quelle für Trading Card Games (TCG) im deutschsprachigen Raum.",
+			"sameAs": [
+				"https://www.wikidata.org/wiki/Q140521499",
+				"https://m.twitch.tv/timgioh/home",
+				"https://www.tiktok.com/@timgioh",
+				"https://www.youtube.com/timgioh",
+				"https://www.instagram.com/timgioh/",
+				"https://www.threads.com/@timgioh",
+				"https://open.spotify.com/show/6iadeQPc274srpNtTp4RGX",
+				"https://podcasts.apple.com/de/podcast/yugi-talk-dein-yugioh-podcast/id1641570551"
+			],
+			"hasCredential": {
+				"@type": "EducationalOccupationalCredential",
+				"name": "alexgaming.dev Verifizierungs-Zertifikat",
+				"credentialCategory": "Certification",
+				"description": "Zertifizierung der Authentizität und Content-Integrität für Tim-Gi-Oh, ausgestellt nach Prüfung der Kommunikationswege durch alexgamingdev.",
+				"recognizedBy": {
+					"@id": "https://alexgaming.is-a.dev/#organization"
+				}
+			}
+			},
+			{
+			"@type": "Person",
+			"@id": "https://alexgaming.is-a.dev/#person",
+			"name": "Alexander Dennhoven",
+			"alternateName": ["alexgamingdev", "alexander.dennhoven", "Alex Gaming Dev"],
+			"url": "https://alexgaming.is-a.dev",
+			"jobTitle": "Software Developer & Architect"
+			},
+			{
+			"@type": "Organization",
+			"@id": "https://alexgaming.is-a.dev/#organization",
+			"name": "alexgamingdev",
+			"url": "https://alexgaming.is-a.dev",
+			"founder": { "@id": "https://alexgaming.is-a.dev/#person" }
+			},
+			{
+			"@type": "WebSite",
+			"@id": "https://timgiohdemo.alexgaming.dev/#website",
+			"url": "https://timgiohdemo.alexgaming.dev/",
+			"name": "Tim-Gi-Oh Official Links",
+			"publisher": {
+				"@id": "https://alexgaming.is-a.dev/#organization"
+			},
+			"creator": {
+				"@id": "https://alexgaming.is-a.dev/#person"
+			}
+			},
+			{
+			"@type": "WebPage",
+			"@id": "https://timgiohdemo.alexgaming.dev/#webpage",
+			"url": "https://timgiohdemo.alexgaming.dev/",
+			"name": "Tim-Gi-Oh | Links",
+			"description": "Offizielle Link-Übersicht von Tim-Gi-Oh, gestaltet von alexgamingdev.",
+			"isPartOf": { "@id": "https://timgiohdemo.alexgaming.dev/#website" },
+			"about": { "@id": "https://timgiohdemo.alexgaming.dev/#person" },
+			"author": { "@id": "https://alexgaming.is-a.dev/#person" }
+			}
 		]
-		},
-		{
-		"@type": "Person",
-		"@id": "https://alexgaming.is-a.dev/#person",
-		"name": "Alexander Dennhoven",
-		"alternateName": ["alexgamingdev", "alexander.dennhoven", "Alex Gaming Dev"],
-		"url": "https://alexgaming.is-a.dev",
-		"jobTitle": "Software Developer & Architect"
-		},
-		{
-		"@type": "Organization",
-		"@id": "https://alexgaming.is-a.dev/#organization",
-		"name": "alexgamingdev",
-		"url": "https://alexgaming.is-a.dev",
-		"founder": { "@id": "https://alexgaming.is-a.dev/#person" }
-		},
-		{
-		"@type": "WebSite",
-		"@id": "https://timgiohdemo.alexgaming.dev/#website",
-		"url": "https://timgiohdemo.alexgaming.dev/",
-		"name": "Tim-Gi-Oh Official Links",
-		"publisher": {
-			"@id": "https://alexgaming.is-a.dev/#organization"
-		},
-		"creator": {
-			"@id": "https://alexgaming.is-a.dev/#person"
 		}
-		},
-		{
-		"@type": "WebPage",
-		"@id": "https://timgiohdemo.alexgaming.dev/#webpage",
-		"url": "https://timgiohdemo.alexgaming.dev/",
-		"name": "Tim-Gi-Oh | Links",
-		"description": "Offizielle Link-Übersicht von Tim-Gi-Oh, gestaltet von alexgamingdev.",
-		"isPartOf": { "@id": "https://timgiohdemo.alexgaming.dev/#website" },
-		"about": { "@id": "https://timgiohdemo.alexgaming.dev/#person" },
-		"author": { "@id": "https://alexgaming.is-a.dev/#person" }
-		}
-	]
-	}
 	</script>
+
 
     <style>
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
