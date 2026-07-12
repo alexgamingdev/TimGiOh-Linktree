@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutz | Tim-Gi-Oh</title>
-	<link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj">
-	<link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj">
+    <link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj">
     <script>
         if (new URLSearchParams(window.location.search).get('a11y') === 'true') {
             document.documentElement.classList.add('a11y-mode');
@@ -37,7 +36,15 @@
     <p>Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten. Da wir durch die Anonymisierung von Plausible und den Verzicht auf Kontaktformulare technisch keine personenbezogenen Daten dauerhaft speichern, liegen für diesen Dienst keine auskunftsfähigen Profile vor.</p>
 
     <div class="mt-8">
-        <a href="../" class="text-blue-600 underline">Zurück zur Startseite</a>
+        <a id="back-link" href="../" class="text-blue-600 underline">Zurück zur Startseite</a>
     </div>
+
+    <script>
+        // Setzt den Link beim Laden korrekt, basierend auf dem Barrierefreiheits-Status
+        const isA11y = new URLSearchParams(window.location.search).get('a11y');
+        if (isA11y === 'true') {
+            document.getElementById('back-link').href = "../?a11y=true";
+        }
+    </script>
 </body>
 </html>

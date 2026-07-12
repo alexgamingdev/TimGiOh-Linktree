@@ -37,7 +37,15 @@
     <p>Der Betreiber behält sich das Recht vor, diese Demo-Seite jederzeit, ohne Vorankündigung und ohne Angabe von Gründen, zu verändern, zu pausieren oder komplett vom Netz zu nehmen.</p>
 
     <div class="mt-8">
-        <a href="../" class="text-blue-600 underline">Zurück zur Startseite</a>
+        <a id="back-link" href="../" class="text-blue-600 underline">Zurück zur Startseite</a>
     </div>
+
+    <script>
+        // Setzt den Link beim Laden korrekt, basierend auf dem Barrierefreiheits-Status
+        const isA11y = new URLSearchParams(window.location.search).get('a11y');
+        if (isA11y === 'true') {
+            document.getElementById('back-link').href = "../?a11y=true";
+        }
+    </script>
 </body>
 </html>
