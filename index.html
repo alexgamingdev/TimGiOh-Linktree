@@ -70,9 +70,15 @@
             <button type="button" onclick="handleLink('https://www.paypal.com/donate/?hosted_button_id=29X3WNVFCHJ5L', 'PayPal')" aria-label="PayPal Support" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold text-blue-700"><i class="fab fa-paypal mr-4 text-xl" aria-hidden="true"></i> Support via PayPal</button>
         </nav>
 
-        <footer class="mt-12 text-center text-slate-400 text-xs space-x-4">
+        <footer class="mt-12 text-center text-slate-400 text-xs space-x-2">
             <button type="button" onclick="document.getElementById('modal').classList.remove('hidden')" class="hover:underline">Impressum</button>
-            <button type="button" onclick="document.getElementById('body-content').classList.toggle('a11y-mode')" class="font-bold underline text-blue-600">Barrierefreiheit aktivieren</button>
+            <span>|</span>
+            <button type="button" onclick="window.location.href='./tos/?a11y=' + document.getElementById('body-content').classList.contains('a11y-mode')" class="hover:underline">AGB</button>
+            <span>|</span>
+            <button type="button" onclick="window.location.href='./datenschutz/?a11y=' + document.getElementById('body-content').classList.contains('a11y-mode')" class="hover:underline">Datenschutz</button>
+            <div class="mt-4">
+                <button type="button" onclick="document.getElementById('body-content').classList.toggle('a11y-mode')" class="font-bold underline text-blue-600">Barrierefreiheit aktivieren</button>
+            </div>
         </footer>
     </main>
 
@@ -102,6 +108,13 @@
     </div>
 
     <script>
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('a11y') === 'true') {
+                document.getElementById('body-content').classList.add('a11y-mode');
+            }
+        };
+
         function handleLink(url, platform, code = null) {
             const overlay = document.getElementById('redirect-overlay');
             document.getElementById('redirect-text').innerText = `Du wirst zu ${platform} weitergeleitet...`;
