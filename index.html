@@ -16,7 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- JSON-LD Structured Data -->
+	<!-- JSON-LD Structured Data -->
 	<script type="application/ld+json">
 		{
 		"@context": "https://schema.org",
@@ -86,7 +86,13 @@
 			"description": "Offizielle Link-Übersicht von Tim-Gi-Oh, gestaltet von alexgamingdev.",
 			"isPartOf": { "@id": "https://timgiohdemo.alexgaming.dev/#website" },
 			"about": { "@id": "https://timgiohdemo.alexgaming.dev/#person" },
-			"author": { "@id": "https://alexgaming.is-a.dev/#person" }
+			"author": { "@id": "https://alexgaming.is-a.dev/#person" }, // KORREKTUR: Komma am Ende der Zeile ergänzt
+			"accessibilityFeature": [
+				"highContrastDisplay",
+				"alternativeText",
+				"structuralNavigation",
+				"noMotionAnimation"
+			]
 			}
 		]
 		}
