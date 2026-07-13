@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj">
     <meta property="og:type" content="website">
 	
-    <link rel="icon" type="image/png" href="https://camo.githubusercontent.com/32d7aed29ff5f025d8e70d73844f52ca065f8583fc191cbec4313ed6d46c4530/68747470733a2f2f73636f6e74656e742d667261332d312e63646e696e7374616772616d2e636f6d2f762f7435312e323838352d31392f3433313331323934305f3332323738353537303738323133395f343334313636343830313239363034343934365f6e2e6a70673f7374703d6473742d6a70675f73333230783332305f747436266566673d65794a325a57356a6232526c583352685a794936496e427962325a706247566663476c6a4c6d52715957356e627934784d4467774c6d4d79496e30265f6e635f68743d73636f6e74656e742d667261332d312e63646e696e7374616772616d2e636f6d265f6e635f6361743d313033265f6e635f6f633d5136635a3267456d7747795743392d796f722d5a4b4876535f4171722d4e726775573236664143313448385f3778627a773270586d476548517061345f44536c624b4e31454973265f6e635f6f68633d6a614d762d4647305a5f6b51376b4e76774776526a7748265f6e635f6769643d49476f514537576273506b3057347758733052636e772665646d3d4146485f495f494241414141266363623d372d35266f683d30305f415142767a776a58546b69616d73426e68514e31637273637455374c51466253504667364332636c75655a4c5267266f653d3641353935313644265f6e635f7369643d353863376365">
+    <link rel="icon" type="image/png" href="https://static-cdn.jtvnw.net/jtv_user_pictures/61289ac9-1e80-4199-bebe-c542fb4777b0-profile_image-600x600.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
@@ -86,7 +86,7 @@
 			"description": "Offizielle Link-Übersicht von Tim-Gi-Oh, gestaltet von alexgamingdev.",
 			"isPartOf": { "@id": "https://timgiohdemo.alexgaming.dev/#website" },
 			"about": { "@id": "https://timgiohdemo.alexgaming.dev/#person" },
-			"author": { "@id": "https://alexgaming.is-a.dev/#person" }, // KORREKTUR: Komma am Ende der Zeile ergänzt
+			"author": { "@id": "https://alexgaming.is-a.dev/#person" },
 			"accessibilityFeature": [
 				"highContrastDisplay",
 				"alternativeText",
@@ -170,12 +170,17 @@
         </div>
     </div>
 
-    <div id="redirect-overlay" class="fixed inset-0 bg-white/80 backdrop-blur-sm hidden flex items-center justify-center z-[110]">
-        <div class="text-center bg-white p-8 rounded-3xl shadow-2xl border border-slate-100">
-            <i id="spinner" class="fas fa-spinner fa-spin text-4xl text-slate-900 mb-4"></i>
-            <p id="redirect-text" class="font-bold text-lg">Weiterleitung...</p>
-        </div>
-    </div>
+    <div id="redirect-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-sm hidden flex items-center justify-center z-[110] p-6">
+		<div class="text-center bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 max-w-sm w-full">
+			<i class="fas fa-external-link-alt text-3xl text-slate-900 mb-4"></i>
+			<h3 class="font-extrabold text-xl mb-2">Du verlässt jetzt unsere Seite</h3>
+			<p id="redirect-text" class="text-slate-500 text-sm mb-6"></p>
+			<div class="flex gap-3">
+				<button id="cancel-btn" class="flex-1 bg-slate-100 text-slate-700 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Abbrechen</button>
+				<button id="confirm-btn" class="flex-1 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Weiter</button>
+			</div>
+		</div>
+	</div>
 
     <main class="max-w-md mx-auto animate-in">
         <header class="text-center mb-8">
@@ -195,7 +200,7 @@
         </header>
 
         <nav class="space-y-3">
-            <button type="button" onclick="handleLink('https://m.twitch.tv/timgioh/home', 'Twitch')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-twitch text-purple-600 mr-4 text-xl"></i> Twitch Live</button>
+            <button type="button" onclick="handleLink('https://www.twitch.tv/timgioh', 'Twitch')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-twitch text-purple-600 mr-4 text-xl"></i> Twitch Live</button>
             <button type="button" onclick="handleLink('https://www.tiktok.com/@timgioh', 'TikTok')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-tiktok mr-4 text-xl"></i> TikTok</button>
             <button type="button" onclick="handleLink('https://www.youtube.com/timgioh', 'YouTube')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-youtube text-red-600 mr-4 text-xl"></i> YouTube</button>
             <button type="button" onclick="handleLink('https://www.instagram.com/timgioh/', 'Instagram')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-instagram text-pink-600 mr-4 text-xl"></i> Instagram</button>
@@ -211,7 +216,7 @@
             
             <div class="pt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-2">Partner & Support</div>
             <button type="button" onclick="handleLink('https://ice-white.com', 'ICE Sleeves', 'TIM5')" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold"><span>ICE Sleeves</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM5</span></button>
-            <button type="button" onclick="handleLink('https://www.steelduck.de', 'Steelduck', 'TIIM5')" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold"><span>Steelduck</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIIM5</span></button>
+            <button type="button" onclick="handleLink('https://www.steelduck.de', 'Steelduck', 'TIM5')" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold"><span>Steelduck</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM5</span></button>
             <button type="button" onclick="handleLink('https://www.jungcards.com', 'Jungcards', 'TIM10')" class="btn-modern glass flex justify-between items-center w-full p-4 rounded-2xl font-semibold"><span>Jungcards</span> <span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded-lg">TIM10</span></button>
             <button type="button" onclick="handleLink('https://www.paypal.com/donate/?hosted_button_id=29X3WNVFCHJ5L', 'PayPal')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold text-blue-700"><i class="fab fa-paypal mr-4 text-xl"></i> Support via PayPal</button>
         </nav>
@@ -279,32 +284,61 @@
                 document.getElementById('a11y-btn').innerText = 'Barrierefreiheit deaktivieren';
             }
         };
-        function handleLink(url, platform, code = null) {
-            const overlay = document.getElementById('redirect-overlay');
-            document.getElementById('redirect-text').innerText = `Du wirst zu ${platform} weitergeleitet...`;
-            overlay.classList.remove('hidden');
-            if (code) {
-                navigator.clipboard.writeText(code);
-                const toast = document.getElementById('toast');
-                toast.classList.remove('hidden');
-                setTimeout(() => { toast.classList.add('show'); setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.classList.add('hidden'), 400); }, 2000); }, 100);
-            }
-            setTimeout(() => { window.open(url, '_blank'); overlay.classList.add('hidden'); }, 1000);
-        }
+		function handleLink(url, platform, code = null) {
+			const overlay = document.getElementById('redirect-overlay');
+			const redirectText = document.getElementById('redirect-text');
+			const confirmBtn = document.getElementById('confirm-btn');
+			const cancelBtn = document.getElementById('cancel-btn');
+		
+			const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+			
+			redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
+			overlay.classList.remove('hidden');
+		
+			const onConfirm = () => {
+				overlay.classList.add('hidden');
+				
+				if (code) {
+					navigator.clipboard.writeText(code);
+					const toast = document.getElementById('toast');
+					toast.classList.remove('hidden');
+					setTimeout(() => { 
+						toast.classList.add('show'); 
+						setTimeout(() => { 
+							toast.classList.remove('show'); 
+							setTimeout(() => toast.classList.add('hidden'), 400); 
+						}, 2000); 
+					}, 100);
+				}
+		
+				window.open(url, '_blank');
+				cleanup();
+			};
+
+			const onCancel = () => {
+				overlay.classList.add('hidden');
+				cleanup();
+			};
+		
+			const cleanup = () => {
+				confirmBtn.removeEventListener('click', onConfirm);
+				cancelBtn.removeEventListener('click', onCancel);
+			};
+		
+			confirmBtn.addEventListener('click', onConfirm);
+			cancelBtn.addEventListener('click', onCancel);
+		}
         function handleExpired() {
             const overlay = document.getElementById('redirect-overlay');
             const spinner = document.getElementById('spinner');
             
-            // Icon zu rotem Ausrufezeichen ändern
             spinner.className = 'fas fa-exclamation-circle text-4xl text-red-600 mb-4';
             document.getElementById('redirect-text').innerText = "Dieser Link ist leider abgelaufen!";
             
             overlay.classList.remove('hidden');
             
-            // Nach 2 Sekunden wieder ausblenden und Icon zurücksetzen
             setTimeout(() => {
                 overlay.classList.add('hidden');
-                // Kurz warten bis Modal zu ist, dann Spinner wieder auf Lade-Icon setzen
                 setTimeout(() => {
                     spinner.className = 'fas fa-spinner fa-spin text-4xl text-slate-900 mb-4';
                 }, 500);
