@@ -265,6 +265,107 @@
             </div>
         </div>
     </div>
+	
+<script>
+    // Zusammengeführte Initialisierung
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Easter Egg Konfiguration ---
+        const konami = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+        let sequence = [];
+        let touchStart = { x: 0, y: 0 };
+        let swipeCount = 0;
+
+        // A11y Status Check
+        const isA11y = () => document.getElementById('body-content').classList.contains('a11y-mode');
+
+        function triggerEasterEgg() {
+            if (isA11y()) return;
+            window.location.href = './egg/ygo';
+        }
+
+        // Keydown Handler
+        document.addEventListener('keydown', (e) => {
+            sequence.push(e.key.toLowerCase());
+            if (sequence.length > 10) sequence.shift();
+            if (JSON.stringify(sequence) === JSON.stringify(konami)) {
+                triggerEasterEgg();
+            }
+        });
+
+        // Touch Handler
+        document.addEventListener('touchstart', e => {
+            touchStart.x = e.touches[0].clientX;
+            touchStart.y = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', e => {
+            let deltaX = e.changedTouches[0].clientX - touchStart.x;
+            let deltaY = e.changedTouches[0].clientY - touchStart.y;
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                let direction = deltaX > 0 ? 'right' : 'left';
+                if ((swipeCount % 2 === 0 && direction === 'right') || (swipeCount % 2 !== 0 && direction === 'left')) {
+                    swipeCount++;
+                } else {
+                    swipeCount = 0;
+                }
+                if (swipeCount >= 4) {
+                    triggerEasterEgg();
+                    swipeCount = 0;
+                }
+            }
+        });
+
+        // --- A11y & UI Funktionalität ---
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('a11y') === 'true') {
+            document.getElementById('body-content').classList.add('a11y-mode');
+            const btn = document.getElementById('a11y-btn');
+            if(btn) btn.innerText = 'Barrierefreiheit deaktivieren';
+        }
+    });
+
+    // Globale Funktionen (müssen außerhalb des DOMContentLoaded bleiben)
+    function toggleA11y() {
+        const body = document.getElementById('body-content');
+        const btn = document.getElementById('a11y-btn');
+        body.classList.toggle('a11y-mode');
+        btn.innerText = body.classList.contains('a11y-mode') ? 'Barrierefreiheit deaktivieren' : 'Barrierefreiheit aktivieren';
+    }
+
+    function toggleA11yNav(url) {
+        const isA11y = document.getElementById('body-content').classList.contains('a11y-mode');
+        window.location.href = `${url}?a11y=${isA11y}`;
+    }
+
+    function handleLink(url, platform, code = null) {
+        const overlay = document.getElementById('redirect-overlay');
+        const redirectText = document.getElementById('redirect-text');
+        const confirmBtn = document.getElementById('confirm-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+        
+        redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
+        overlay.classList.remove('hidden');
+
+        const onConfirm = () => {
+            overlay.classList.add('hidden');
+            if (code) {
+                navigator.clipboard.writeText(code);
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                toast.classList.add('show');
+                setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.classList.add('hidden'), 400); }, 2000);
+            }
+            window.open(url, '_blank');
+            cleanup();
+        };
+
+        const onCancel = () => { overlay.classList.add('hidden'); cleanup(); };
+        const cleanup = () => { confirmBtn.removeEventListener('click', onConfirm); cancelBtn.removeEventListener('click', onCancel); };
+        confirmBtn.addEventListener('click', onConfirm);
+        cancelBtn.addEventListener('click', onCancel);
+    }
+</script>
 
     <script>
         function toggleA11y() {
