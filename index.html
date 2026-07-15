@@ -328,22 +328,6 @@
 			confirmBtn.addEventListener('click', onConfirm);
 			cancelBtn.addEventListener('click', onCancel);
 		}
-        function handleExpired() {
-            const overlay = document.getElementById('redirect-overlay');
-            const spinner = document.getElementById('spinner');
-            
-            spinner.className = 'fas fa-exclamation-circle text-4xl text-red-600 mb-4';
-            document.getElementById('redirect-text').innerText = "Dieser Link ist leider abgelaufen!";
-            
-            overlay.classList.remove('hidden');
-            
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-                setTimeout(() => {
-                    spinner.className = 'fas fa-spinner fa-spin text-4xl text-slate-900 mb-4';
-                }, 500);
-            }, 2000);
-        }
     </script>
 </body>
 </html>
