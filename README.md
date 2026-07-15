@@ -1,7 +1,7 @@
 # Tim-Gi-Oh Premium Linktree Alternative
 
 <div align="center">
-  <img src="https://scontent-fra3-1.cdninstagram.com/v/t51.2885-19/431312940_322785570782139_4341664801296044946_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_cat=103&_nc_oc=Q6cZ2gEmwGyWC9-yor-ZKHvS_Aqr-NrguW26fAC14H8_7xbzw2pXmGeHQpa4_DSlbKN1EIs&_nc_ohc=jaMv-FG0Z_kQ7kNvwGvRjwH&_nc_gid=IGoQE7WbsPk0W4wXs0Rcnw&edm=AFH_I_IBAAAA&ccb=7-5&oh=00_AQBvzwjXTkiamsBnhQN1crsctU7LQFbSPFg6C2clueZLRg&oe=6A59516D&_nc_sid=58c7ce" alt="Tim-Gi-Oh Logo" width="150" style="border-radius: 50%;"> <h3>Entwickelt von</h3> <img src="https://alexgaming.is-a.dev/icons/favicon.png" alt="Alexander Dennhoven Logo" width="80">
+  <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/61289ac9-1e80-4199-bebe-c542fb4777b0-profile_image-600x600.png" alt="Tim-Gi-Oh Logo" width="150" style="border-radius: 50%;"> <h3>Entwickelt von</h3> <img src="https://alexgaming.is-a.dev/icons/favicon.png" alt="Alexander Dennhoven Logo" width="80">
 </div>
 
 ---
