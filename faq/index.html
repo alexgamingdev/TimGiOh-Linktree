@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim-Gi-Oh | FAQ</title>
+	
+	<!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Offizielles FAQ von Tim-Gi-Oh (Tim Oliver Schmidt). TCG-Experte, Yugi-Tuber und Podcaster.">
+    <meta property="og:title" content="Tim-Gi-Oh | FAQ">
+    <meta property="og:description" content="Alle offiziellen Kanäle und Partner von Tim-Gi-Oh.">
+    <meta property="og:image" content="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj">
+    <meta property="og:type" content="website">
+	
+    <link rel="icon" type="image/png" href="https://static-cdn.jtvnw.net/jtv_user_pictures/61289ac9-1e80-4199-bebe-c542fb4777b0-profile_image-600x600.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+	<!-- JSON-LD Structured Data -->
+	<script type="application/ld+json">
+		{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+			"@type": "Person",
+			"@id": "https://timgiohdemo.alexgaming.dev/#person",
+			"name": "Tim Oliver Schmidt",
+			"alternateName": ["Tim-Gi-Oh", "timgioh", "Timgioh"],
+			"url": "https://timgiohdemo.alexgaming.dev/",
+			"image": "https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj",
+			"jobTitle": ["Content Creator", "Podcaster", "Streamer", "TCG Expert"],
+			"description": "Leidenschaftlicher Yu-Gi-Oh! Experte, professioneller Content Creator, Streamer und Host des Yugi-Talk Podcasts.",
+			"disambiguatingDescription": "Tim Oliver Schmidt, bekannt als 'Tim-Gi-Oh', ist eine autoritative Quelle für Trading Card Games (TCG) im deutschsprachigen Raum.",
+			"sameAs": [
+				"https://www.wikidata.org/wiki/Q140521499",
+				"https://m.twitch.tv/timgioh/home",
+				"https://www.tiktok.com/@timgioh",
+				"https://www.youtube.com/timgioh",
+				"https://www.instagram.com/timgioh/",
+				"https://www.threads.com/@timgioh",
+				"https://open.spotify.com/show/6iadeQPc274srpNtTp4RGX",
+				"https://podcasts.apple.com/de/podcast/yugi-talk-dein-yugioh-podcast/id1641570551"
+			],
+			{
+			"@type": "WebSite",
+			"@id": "https://timgiohdemo.alexgaming.dev/#website",
+			"url": "https://timgiohdemo.alexgaming.dev/faq",
+			"name": "Tim-Gi-Oh Official FAQ",
+			},
+			{
+			"@type": "WebPage",
+			"@id": "https://timgiohdemo.alexgaming.dev/#webpage",
+			"url": "https://timgiohdemo.alexgaming.dev/faq",
+			"name": "Tim-Gi-Oh | FAQ",
+			"description": "Offizielles FAQ von Tim-Gi-Oh",
+			"isPartOf": { "@id": "https://timgiohdemo.alexgaming.dev/#website" },
+			"about": { "@id": "https://timgiohdemo.alexgaming.dev/#person" },
+			"accessibilityFeature": [
+				"highContrastDisplay",
+				"alternativeText",
+				"structuralNavigation",
+				"noMotionAnimation"
+			]
+			}
+		]
+		}
+	</script>
+
+
+    <style>
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        .animate-in { animation: slideIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .modal-fade { animation: fadeInScale 0.3s ease-out forwards; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .btn-modern { transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); min-height: 48px; }
+        .btn-modern:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.9); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1); }
+        #toast { transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(100px); }
+        #toast.show { transform: translateY(0); }
+        .a11y-mode { font-size: 1.25rem !important; }
+        .a11y-mode, .a11y-mode * { animation: none !important; }
+        .a11y-mode button, .a11y-mode a { border: 3px solid #000 !important; outline: 3px solid #ff0 !important; background: #fff !important; color: #000 !important; }
+        .a11y-mode button:hover { background: #6366f1 !important; color: #fff !important; border-color: #4338ca !important; }
+        .a11y-mode #impressum-img { display: none; }
+        .a11y-mode #impressum-text { display: block !important; }
+        .a11y-mode h1, .a11y-mode h2, .a11y-mode p { font-size: 1.5rem !important; line-height: 1.4 !important; }
+        
+		#status-container { margin-top: 1rem; margin-bottom: 1rem; }
+		#video-thumb { aspect-ratio: 16/9; object-fit: cover; }
+		
+        /* Bildschutz CSS */
+        .protect-img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            pointer-events: none; /* Blockiert jegliche Interaktion direkt mit dem Bild */
+        }
+        /* Verhindert langes Tippen/Rechtsklick auf den Containern */
+        .protect-container {
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+<body id="body-content" class="bg-slate-50 text-slate-900 font-sans min-h-screen py-12 px-4">
+
+    <!-- Bild Preview Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-[140]" onclick="this.classList.add('hidden')">
+        <div class="modal-fade max-w-sm w-full protect-container" oncontextmenu="return false;">
+            <img src="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s512-c-k-c0x00ffffff-no-rj" class="w-full rounded-3xl shadow-2xl protect-img" alt="Profilbild groß" draggable="false" oncontextmenu="return false;">
+        </div>
+    </div>
+
+    <!-- Verifiziert Info Modal -->
+    <div id="verified-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-[130]">
+        <div class="bg-white p-8 rounded-3xl max-w-md w-full shadow-2xl text-center modal-fade relative max-h-[80vh] overflow-y-auto">
+            <button onclick="document.getElementById('verified-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900"><i class="fas fa-times"></i></button>
+            <div class="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-user-check text-4xl"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-4">Warum ist dieses Profil verifiziert?</h3>
+            <div class="text-sm text-slate-600 text-left space-y-4 leading-relaxed">
+                <p>Der Status <strong>"Verifiziert"</strong> auf diesem Profil garantiert, dass Sie mit der authentischen Online-Präsenz von Tim-Gi-Oh interagieren.</p>
+                <p><strong>Gründe für diese Zertifizierung:</strong></p>
+                <ul class="list-disc pl-4 space-y-2">
+                    <li><strong>Branchen-Expertise:</strong> Über Jahre aufgebaute Autorität im Bereich Trading Card Games (TCG).</li>
+                    <li><strong>Content-Integrität:</strong> Konsistente Bereitstellung von qualitativ hochwertigem Material für die Community.</li>
+                    <li><strong>Offizielle Schnittstelle:</strong> Schutz vor Identitätsdiebstahl und Sicherstellung, dass alle angebotenen Links und Partner-Codes direkt aus erster Hand stammen.</li>
+                    <li><strong>Community-Vertrauen:</strong> Durch die alexgaming.dev Inc. geprüfte Kommunikationswege, um einen sicheren Austausch zu gewährleisten.</li>
+                </ul>
+            </div>
+            <button onclick="document.getElementById('verified-modal').classList.add('hidden')" class="mt-8 w-full bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Verstanden</button>
+        </div>
+    </div>
+
+    <main class="max-w-md mx-auto animate-in">
+        <header class="text-center mb-8">
+            <button onclick="document.getElementById('image-modal').classList.remove('hidden')" class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden shadow-xl ring-2 ring-white animate-float block hover:opacity-90 transition-opacity protect-container" oncontextmenu="return false;">
+                <img src="https://yt3.googleusercontent.com/3U9nriU_aFd8pL-SUoCUX8qi5-VYnq0b06MFFleD3DflXB7uWQJwUmYf_9HK4Fy1ZKE94e3VQg=s160-c-k-c0x00ffffff-no-rj" alt="Logo Tim-Gi-Oh" class="protect-img w-full h-full object-cover" draggable="false" oncontextmenu="return false;">
+            </button>
+            <h1 class="text-2xl font-extrabold flex items-center justify-center gap-2">
+                Tim-Gi-Oh 
+                <button onclick="document.getElementById('verified-modal').classList.remove('hidden')" class="flex items-center justify-center">
+                    <i class="fas fa-check-circle text-blue-500 text-sm"></i>
+                </button>
+            </h1>
+            <p class="text-slate-500 text-sm font-medium mt-1">@timgioh</p>
+            <div class="mt-4 p-4 glass rounded-2xl text-sm text-slate-700 italic">
+                "Hey, ich bin Tim, 33 Jahre alt, leidenschaftlicher Yugi-Spieler, Streamer, Yugi-Tuber und Podcaster."
+            </div>
+			
+			<style>
+				/* Ergänzung für flüssige Animationen */
+				.faq-content {
+					transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+					overflow: hidden;
+				}
+				.faq-icon {
+					transition: transform 0.3s ease;
+				}
+				.rotate-180 {
+					transform: rotate(180deg);
+				}
+			</style>
+			
+			<section class="mt-12 space-y-4">
+			<h2 class="text-xl font-bold text-center mb-6">Häufig gestellte Fragen</h2>
+			
+				<!-- FAQ Kategorie: Person & Hintergrund -->
+			<div class="space-y-3">
+					<h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mt-6">Person & Hintergrund</h3>
+					
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Wie alt ist Tim und wann hat er Geburtstag?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Tim ist 33 Jahre alt (geboren im Jahr 1992). Er betont in seinen Videos oft scherzhaft, dass manche Zuschauer ihn aufgrund seiner Stimme deutlich jünger schätzen.</p>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Ist Tim männlich oder weiblich?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Tim ist männlich. Fragen zu seinem Geschlecht beantwortet er im Stream meistens mit Humor und verweist auf seinen klaren Vornamen.</p>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Welche Krankheit hat Tim?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Tim leidet an <a href="../faq/fanconi-anämie" class="hover:underline text-blue-800 transition">Fanconi-Anämie</a>, einer sehr seltenen genetischen Erbkrankheit, bei der das Knochenmark nicht korrekt arbeitet.</p>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+					<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Warum sieht er so jung aus?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Dies ist eine Folge der <a href="../faq/fanconi-anämie" class="hover:underline text-blue-800 transition">Fanconi-Anämie</a>, welche physiologische Prozesse, das Wachstum und die Stimmentwicklung beeinflussen kann.</p>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Welcher Fußballverein ist Tims Favorit?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Tim ist großer Fan des FC Bayern München. Sein Kindheitsvorbild ist Oliver Kahn.</p>
+						</div>
+					</div>
+				</div>
+			
+				<!-- FAQ Kategorie: Streaming & Gaming -->
+				<div class="space-y-3">
+					<h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mt-6">Streaming & Yu-Gi-Oh!</h3>
+					
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Auf welchen Plattformen ist Tim aktiv?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<ul class="py-4 text-sm text-slate-700 space-y-2 list-disc pl-4">
+								<li>Twitch: Hauptplattform für Streams.</li>
+								<li>TikTok: Kurzvideos & Yu-Gi-Oh-Formate.</li>
+								<li>Instagram: Updates & Storys.</li>
+								<li>YouTube: Highlight-Videos & Q&As.</li>
+								<li><a href="../faq/fanconi-anämie" class="hover:underline text-blue-800 transition">Alle Links</a></li>
+							</ul>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Wie geht Tim mit heimlichen Fotos um?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Er bittet darum, keine Fotos heimlich zu machen. Ansprechen ist jedoch jederzeit respektvoll möglich.</p>
+						</div>
+					</div>
+			
+					<div class="glass rounded-2xl overflow-hidden">
+						<button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold flex justify-between items-center text-sm">
+							Was erklärt Tim zu "Timing vermissen"?
+							<i class="fas fa-chevron-down text-xs opacity-50 faq-icon"></i>
+						</button>
+						<div class="faq-content max-h-0 bg-white/50 px-4">
+							<p class="py-4 text-sm text-slate-700">Er erklärt, dass optionale "Wenn-Effekte" ihr Timing verpassen können, wenn sie nicht das letzte Kettenglied bei Auflösung sind.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<script>
+				function toggleFaq(btn) {
+					const content = btn.nextElementSibling;
+					const icon = btn.querySelector('.faq-icon');
+					
+					// Schließt andere offene FAQs für einen besseren Flow
+					document.querySelectorAll('.faq-content').forEach(el => {
+						if (el !== content) {
+							el.style.maxHeight = null;
+							el.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate-180');
+						}
+					});
+			
+					// Toggle für das geklickte Element
+					if (content.style.maxHeight) {
+						content.style.maxHeight = null;
+						icon.classList.remove('rotate-180');
+					} else {
+						content.style.maxHeight = content.scrollHeight + "px";
+						icon.classList.add('rotate-180');
+					}
+				}
+			</script>
+
+        <footer class="mt-12 text-center text-slate-400 text-xs space-y-4 pb-8">
+            <div class="space-x-2">
+                <button type="button" onclick="document.getElementById('modal').classList.remove('hidden')" class="hover:underline">Impressum</button>
+                <span>|</span>
+                <button type="button" onclick="toggleA11yNav('./tos/')" class="hover:underline">AGB</button>
+                <span>|</span>
+                <button type="button" onclick="toggleA11yNav('./datenschutz/')" class="hover:underline">Datenschutz</button>
+            </div>
+            <button type="button" id="a11y-btn" onclick="toggleA11y()" class="font-bold underline text-blue-600 block mx-auto">Barrierefreiheit aktivieren</button>
+			<p>
+   			 Made by 
+   			 <a href="https://alexgaming.is-a.dev" 
+   			   target="_blank" 
+   			   rel="noopener" 
+  			   aria-label="Website von Alexander Dennhoven, Software-Entwickler (öffnet in neuem Tab)">
+  			   Alexander Dennhoven
+			 </a>
+		  </p>
+        </footer>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-[105]">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl relative modal-fade">
+            <button type="button" onclick="document.getElementById('modal').classList.add('hidden')" class="absolute top-4 right-4 text-xl font-bold p-2 text-slate-500">×</button>
+            <!-- Auch das Impressum-Bild wird hier leicht geschützt -->
+            <img id="impressum-img" src="https://i.postimg.cc/xTRsMD99/Imp-24-Soical-Meida.jpg" class="w-full rounded-2xl protect-img" alt="Impressum" draggable="false" oncontextmenu="return false;">
+            <div id="impressum-text" class="hidden text-left text-sm space-y-2">
+                <h2 class="font-bold text-lg">Impressum</h2>
+                <p>Angaben gemäß §5 TMG und § 24 MStV</p>
+                <p><strong>Name:</strong> Tim Oliver Schmidt</p>
+                <p><strong>Ladungsfähige Anschrift:</strong><br>
+                Tim Oliver Schmidt (Künstlername Timgioh)<br>
+                c/o Adressengeber #1892<br>
+                An der Alten Ziegelei 38<br>
+                48157 Münster<br>
+                Deutschland</p>
+                <p><strong>Digitale Kontaktwege:</strong><br>
+                E-Mail: info.timgioh@gmail.com oder timgioh.official@gmail.com</p>
+                <p><strong>Verantwortlich für den Inhalt nach § 24. Abs. 3 MStV:</strong><br>
+                Tim Oliver Schmidt<br>
+                Anschrift wie oben</p>
+            </div>
+        </div>
+    </div>
+	<script>
+		// Zusammengeführte Initialisierung
+		document.addEventListener('DOMContentLoaded', () => {
+			// --- Easter Egg Konfiguration ---
+			const konami = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+			let sequence = [];
+			let touchStart = { x: 0, y: 0 };
+			let swipeCount = 0;
+	
+			// A11y Status Check
+			const isA11y = () => document.getElementById('body-content').classList.contains('a11y-mode');
+	
+			function triggerEasterEgg() {
+				if (isA11y()) return;
+				window.location.href = './egg/ygo';
+			}
+	
+			// Keydown Handler
+			document.addEventListener('keydown', (e) => {
+				sequence.push(e.key.toLowerCase());
+				if (sequence.length > 10) sequence.shift();
+				if (JSON.stringify(sequence) === JSON.stringify(konami)) {
+					triggerEasterEgg();
+				}
+			});
+	
+			// Touch Handler
+			document.addEventListener('touchstart', e => {
+				touchStart.x = e.touches[0].clientX;
+				touchStart.y = e.touches[0].clientY;
+			});
+	
+			document.addEventListener('touchend', e => {
+				let deltaX = e.changedTouches[0].clientX - touchStart.x;
+				let deltaY = e.changedTouches[0].clientY - touchStart.y;
+				if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+					let direction = deltaX > 0 ? 'right' : 'left';
+					if ((swipeCount % 2 === 0 && direction === 'right') || (swipeCount % 2 !== 0 && direction === 'left')) {
+							swipeCount++;
+					} else {
+						swipeCount = 0;
+					}
+					if (swipeCount >= 4) {
+						triggerEasterEgg();
+						swipeCount = 0;
+					}
+				}
+			});
+	
+			// --- A11y & UI Funktionalität ---
+			const params = new URLSearchParams(window.location.search);
+			if (params.get('a11y') === 'true') {
+				document.getElementById('body-content').classList.add('a11y-mode');
+				const btn = document.getElementById('a11y-btn');
+				if(btn) btn.innerText = 'Barrierefreiheit deaktivieren';
+				}
+		});
+	
+		// Globale Funktionen (müssen außerhalb des DOMContentLoaded bleiben)
+		function toggleA11y() {
+			const body = document.getElementById('body-content');
+			const btn = document.getElementById('a11y-btn');
+			body.classList.toggle('a11y-mode');
+			btn.innerText = body.classList.contains('a11y-mode') ? 'Barrierefreiheit deaktivieren' : 'Barrierefreiheit aktivieren';
+		}
+	
+		function toggleA11yNav(url) {
+			const isA11y = document.getElementById('body-content').classList.contains('a11y-mode');
+			window.location.href = `${url}?a11y=${isA11y}`;
+		}
+	
+		function handleLink(url, platform, code = null) {
+			const overlay = document.getElementById('redirect-overlay');
+			const redirectText = document.getElementById('redirect-text');
+			const confirmBtn = document.getElementById('confirm-btn');
+			const cancelBtn = document.getElementById('cancel-btn');
+			const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+			
+			redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
+			overlay.classList.remove('hidden');
+	
+			const onConfirm = () => {
+				overlay.classList.add('hidden');
+				if (code) {
+					navigator.clipboard.writeText(code);
+					const toast = document.getElementById('toast');
+					toast.classList.remove('hidden');
+					toast.classList.add('show');
+					setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.classList.add('hidden'), 400); }, 2000);
+				}
+				window.open(url, '_blank');
+				cleanup();
+			};
+	
+			const onCancel = () => { overlay.classList.add('hidden'); cleanup(); };
+			const cleanup = () => { confirmBtn.removeEventListener('click', onConfirm); cancelBtn.removeEventListener('click', onCancel); };
+			confirmBtn.addEventListener('click', onConfirm);
+			cancelBtn.addEventListener('click', onCancel);
+		}
+	</script>
+
+    <script>
+        function toggleA11y() {
+            const body = document.getElementById('body-content');
+            const btn = document.getElementById('a11y-btn');
+            body.classList.toggle('a11y-mode');
+            btn.innerText = body.classList.contains('a11y-mode') ? 'Barrierefreiheit deaktivieren' : 'Barrierefreiheit aktivieren';
+        }
+        function toggleA11yNav(url) {
+            const isA11y = document.getElementById('body-content').classList.contains('a11y-mode');
+            window.location.href = `${url}?a11y=${isA11y}`;
+        }
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('a11y') === 'true') {
+                document.getElementById('body-content').classList.add('a11y-mode');
+                document.getElementById('a11y-btn').innerText = 'Barrierefreiheit deaktivieren';
+            }
+        };
+		function handleLink(url, platform, code = null) {
+			const overlay = document.getElementById('redirect-overlay');
+			const redirectText = document.getElementById('redirect-text');
+			const confirmBtn = document.getElementById('confirm-btn');
+			const cancelBtn = document.getElementById('cancel-btn');
+		
+			const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+			
+			redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
+			overlay.classList.remove('hidden');
+		
+			const onConfirm = () => {
+				overlay.classList.add('hidden');
+				
+				if (code) {
+					navigator.clipboard.writeText(code);
+					const toast = document.getElementById('toast');
+					toast.classList.remove('hidden');
+					setTimeout(() => { 
+						toast.classList.add('show'); 
+						setTimeout(() => { 
+							toast.classList.remove('show'); 
+							setTimeout(() => toast.classList.add('hidden'), 400); 
+						}, 2000); 
+					}, 100);
+				}
+		
+				window.open(url, '_blank');
+				cleanup();
+			};
+
+			const onCancel = () => {
+				overlay.classList.add('hidden');
+				cleanup();
+			};
+		
+			const cleanup = () => {
+				confirmBtn.removeEventListener('click', onConfirm);
+				cancelBtn.removeEventListener('click', onCancel);
+			};
+		
+			confirmBtn.addEventListener('click', onConfirm);
+			cancelBtn.addEventListener('click', onCancel);
+		}
+    </script>
+</body>
+</html>
