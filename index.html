@@ -119,6 +119,9 @@
         .a11y-mode #impressum-text { display: block !important; }
         .a11y-mode h1, .a11y-mode h2, .a11y-mode p { font-size: 1.5rem !important; line-height: 1.4 !important; }
         
+		#status-container { margin-top: 1rem; margin-bottom: 1rem; }
+		#video-thumb { aspect-ratio: 16/9; object-fit: cover; }
+		
         /* Bildschutz CSS */
         .protect-img {
             -webkit-user-drag: none;
@@ -198,9 +201,21 @@
                 "Hey, ich bin Tim, 33 Jahre alt, leidenschaftlicher Yugi-Spieler, Streamer, Yugi-Tuber und Podcaster."
             </div>
         </header>
-
+		
+		<div id="status-container" class="space-y-3">
+			<!-- YouTube Video -->
+			<div id="latest-video" class="glass p-4 rounded-2xl hidden">
+				<div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Neuestes Video</div>
+				<a id="video-link" href="#" target="_blank" class="block hover:opacity-80 transition">
+					<img id="video-thumb" src="" alt="Thumbnail" class="w-full rounded-xl mb-2">
+					<p id="video-title" class="text-sm font-semibold leading-tight"></p>
+				</a>
+			</div>
+		</div>
+		
         <nav class="space-y-3">
-			<button type="button" onclick="handleLink('https://www.twitch.tv/timgioh', 'Twitch')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-twitch text-purple-600 mr-4 text-xl"></i> Twitch Live<div class="ml-2 flex items-center" title="Verifizierter Partner"><svg width="16" height="16" viewBox="0 0 16 16" class="text-purple-600"><path fill="currentColor" fill-rule="evenodd" d="M12.5 3.5 8 2 3.5 3.5 2 8l1.5 4.5L8 14l4.5-1.5L14 8l-1.5-4.5ZM7 11l4.5-4.5L10 5 7 8 5.5 6.5 4 8l3 3Z" clip-rule="evenodd"></path></svg></div></button>
+			<div class="pt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-2">Social Media Profile</div>
+			<button type="button" onclick="handleLink('https://www.twitch.tv/timgioh', 'Twitch')" id="twitch-btn" class="btn-modern glass flex items-center justify-between w-full p-4 rounded-2xl font-semibold" title="Lädt Status..."><div class="flex items-center"><i class="fab fa-twitch text-purple-600 mr-4 text-xl"></i> Twitch Live<div class="ml-2 flex items-center" title="Verifizierter Partner"><svg width="16" height="16" viewBox="0 0 16 16" class="text-purple-600"><path fill="currentColor" fill-rule="evenodd" d="M12.5 3.5 8 2 3.5 3.5 2 8l1.5 4.5L8 14l4.5-1.5L14 8l-1.5-4.5ZM7 11l4.5-4.5L10 5 7 8 5.5 6.5 4 8l3 3Z" clip-rule="evenodd"></path></svg></div></div><span id="twitch-status-indicator" class="w-3 h-3 rounded-full bg-slate-400"></span></button>
             <button type="button" onclick="handleLink('https://www.tiktok.com/@timgioh', 'TikTok')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-tiktok mr-4 text-xl"></i> TikTok</button>
             <button type="button" onclick="handleLink('https://www.youtube.com/timgioh', 'YouTube')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-youtube text-red-600 mr-4 text-xl"></i> YouTube</button>
             <button type="button" onclick="handleLink('https://www.instagram.com/timgioh/', 'Instagram')" class="btn-modern glass flex items-center w-full p-4 rounded-2xl font-semibold"><i class="fab fa-instagram text-pink-600 mr-4 text-xl"></i> Instagram</button>
@@ -266,106 +281,144 @@
         </div>
     </div>
 	
-<script>
-    // Zusammengeführte Initialisierung
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- Easter Egg Konfiguration ---
-        const konami = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
-        let sequence = [];
-        let touchStart = { x: 0, y: 0 };
-        let swipeCount = 0;
-
-        // A11y Status Check
-        const isA11y = () => document.getElementById('body-content').classList.contains('a11y-mode');
-
-        function triggerEasterEgg() {
-            if (isA11y()) return;
-            window.location.href = './egg/ygo';
-        }
-
-        // Keydown Handler
-        document.addEventListener('keydown', (e) => {
-            sequence.push(e.key.toLowerCase());
-            if (sequence.length > 10) sequence.shift();
-            if (JSON.stringify(sequence) === JSON.stringify(konami)) {
-                triggerEasterEgg();
-            }
-        });
-
-        // Touch Handler
-        document.addEventListener('touchstart', e => {
-            touchStart.x = e.touches[0].clientX;
-            touchStart.y = e.touches[0].clientY;
-        });
-
-        document.addEventListener('touchend', e => {
-            let deltaX = e.changedTouches[0].clientX - touchStart.x;
-            let deltaY = e.changedTouches[0].clientY - touchStart.y;
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-                let direction = deltaX > 0 ? 'right' : 'left';
-                if ((swipeCount % 2 === 0 && direction === 'right') || (swipeCount % 2 !== 0 && direction === 'left')) {
-                    swipeCount++;
-                } else {
-                    swipeCount = 0;
-                }
-                if (swipeCount >= 4) {
-                    triggerEasterEgg();
-                    swipeCount = 0;
-                }
-            }
-        });
-
-        // --- A11y & UI Funktionalität ---
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('a11y') === 'true') {
-            document.getElementById('body-content').classList.add('a11y-mode');
-            const btn = document.getElementById('a11y-btn');
-            if(btn) btn.innerText = 'Barrierefreiheit deaktivieren';
-        }
-    });
-
-    // Globale Funktionen (müssen außerhalb des DOMContentLoaded bleiben)
-    function toggleA11y() {
-        const body = document.getElementById('body-content');
-        const btn = document.getElementById('a11y-btn');
-        body.classList.toggle('a11y-mode');
-        btn.innerText = body.classList.contains('a11y-mode') ? 'Barrierefreiheit deaktivieren' : 'Barrierefreiheit aktivieren';
-    }
-
-    function toggleA11yNav(url) {
-        const isA11y = document.getElementById('body-content').classList.contains('a11y-mode');
-        window.location.href = `${url}?a11y=${isA11y}`;
-    }
-
-    function handleLink(url, platform, code = null) {
-        const overlay = document.getElementById('redirect-overlay');
-        const redirectText = document.getElementById('redirect-text');
-        const confirmBtn = document.getElementById('confirm-btn');
-        const cancelBtn = document.getElementById('cancel-btn');
-        const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
-        
-        redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
-        overlay.classList.remove('hidden');
-
-        const onConfirm = () => {
-            overlay.classList.add('hidden');
-            if (code) {
-                navigator.clipboard.writeText(code);
-                const toast = document.getElementById('toast');
-                toast.classList.remove('hidden');
-                toast.classList.add('show');
-                setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.classList.add('hidden'), 400); }, 2000);
-            }
-            window.open(url, '_blank');
-            cleanup();
-        };
-
-        const onCancel = () => { overlay.classList.add('hidden'); cleanup(); };
-        const cleanup = () => { confirmBtn.removeEventListener('click', onConfirm); cancelBtn.removeEventListener('click', onCancel); };
-        confirmBtn.addEventListener('click', onConfirm);
-        cancelBtn.addEventListener('click', onCancel);
-    }
-</script>
+	<script>
+		async function updateDashboard() {
+			// 1. YouTube Neuestes Video
+			try {
+				const ytResponse = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCj5VJjyUg0z7qg7PwB1_WDQ');
+				const ytData = await ytResponse.json();
+				if (ytData.items && ytData.items.length > 0) {
+					const video = ytData.items[0];
+					document.getElementById('video-title').innerText = video.title;
+					document.getElementById('video-thumb').src = video.thumbnail;
+					document.getElementById('video-link').href = video.link;
+					document.getElementById('latest-video').classList.remove('hidden');
+				}
+			} catch (e) { console.error("YT Error", e); }
+	
+			// 2. Twitch Live-Status Abfrage mit Titel-Update
+			try {
+				const twitchResponse = await fetch('https://decapi.me/twitch/uptime/timgioh');
+				const statusText = await twitchResponse.text();
+				const btn = document.getElementById('twitch-btn');
+				const indicator = document.getElementById('twitch-status-indicator');
+				
+				if (!statusText.includes("offline")) {
+					indicator.classList.remove('bg-slate-400');
+					indicator.classList.add('bg-red-500', 'animate-pulse');
+					btn.setAttribute('title', 'Online - Jetzt live!');
+				} else {
+					indicator.classList.remove('bg-red-500', 'animate-pulse');
+					indicator.classList.add('bg-slate-400');
+					btn.setAttribute('title', 'Aktuell offline');
+				}
+			} catch (e) { 
+				console.error("Twitch API Error", e); 
+			}
+		}
+		updateDashboard();
+	</script>
+	
+	<script>
+		// Zusammengeführte Initialisierung
+		document.addEventListener('DOMContentLoaded', () => {
+			// --- Easter Egg Konfiguration ---
+			const konami = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+			let sequence = [];
+			let touchStart = { x: 0, y: 0 };
+			let swipeCount = 0;
+	
+			// A11y Status Check
+			const isA11y = () => document.getElementById('body-content').classList.contains('a11y-mode');
+	
+			function triggerEasterEgg() {
+				if (isA11y()) return;
+				window.location.href = './egg/ygo';
+			}
+	
+			// Keydown Handler
+			document.addEventListener('keydown', (e) => {
+				sequence.push(e.key.toLowerCase());
+				if (sequence.length > 10) sequence.shift();
+				if (JSON.stringify(sequence) === JSON.stringify(konami)) {
+					triggerEasterEgg();
+				}
+			});
+	
+			// Touch Handler
+			document.addEventListener('touchstart', e => {
+				touchStart.x = e.touches[0].clientX;
+				touchStart.y = e.touches[0].clientY;
+			});
+	
+			document.addEventListener('touchend', e => {
+				let deltaX = e.changedTouches[0].clientX - touchStart.x;
+				let deltaY = e.changedTouches[0].clientY - touchStart.y;
+				if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+					let direction = deltaX > 0 ? 'right' : 'left';
+					if ((swipeCount % 2 === 0 && direction === 'right') || (swipeCount % 2 !== 0 && direction === 'left')) {
+							swipeCount++;
+					} else {
+						swipeCount = 0;
+					}
+					if (swipeCount >= 4) {
+						triggerEasterEgg();
+						swipeCount = 0;
+					}
+				}
+			});
+	
+			// --- A11y & UI Funktionalität ---
+			const params = new URLSearchParams(window.location.search);
+			if (params.get('a11y') === 'true') {
+				document.getElementById('body-content').classList.add('a11y-mode');
+				const btn = document.getElementById('a11y-btn');
+				if(btn) btn.innerText = 'Barrierefreiheit deaktivieren';
+				}
+		});
+	
+		// Globale Funktionen (müssen außerhalb des DOMContentLoaded bleiben)
+		function toggleA11y() {
+			const body = document.getElementById('body-content');
+			const btn = document.getElementById('a11y-btn');
+			body.classList.toggle('a11y-mode');
+			btn.innerText = body.classList.contains('a11y-mode') ? 'Barrierefreiheit deaktivieren' : 'Barrierefreiheit aktivieren';
+		}
+	
+		function toggleA11yNav(url) {
+			const isA11y = document.getElementById('body-content').classList.contains('a11y-mode');
+			window.location.href = `${url}?a11y=${isA11y}`;
+		}
+	
+		function handleLink(url, platform, code = null) {
+			const overlay = document.getElementById('redirect-overlay');
+			const redirectText = document.getElementById('redirect-text');
+			const confirmBtn = document.getElementById('confirm-btn');
+			const cancelBtn = document.getElementById('cancel-btn');
+			const displayUrl = url.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+			
+			redirectText.innerText = `Du wirst zu ${displayUrl} weitergeleitet.`;
+			overlay.classList.remove('hidden');
+	
+			const onConfirm = () => {
+				overlay.classList.add('hidden');
+				if (code) {
+					navigator.clipboard.writeText(code);
+					const toast = document.getElementById('toast');
+					toast.classList.remove('hidden');
+					toast.classList.add('show');
+					setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.classList.add('hidden'), 400); }, 2000);
+				}
+				window.open(url, '_blank');
+				cleanup();
+			};
+	
+			const onCancel = () => { overlay.classList.add('hidden'); cleanup(); };
+			const cleanup = () => { confirmBtn.removeEventListener('click', onConfirm); cancelBtn.removeEventListener('click', onCancel); };
+			confirmBtn.addEventListener('click', onConfirm);
+			cancelBtn.addEventListener('click', onCancel);
+		}
+	</script>
 
     <script>
         function toggleA11y() {
